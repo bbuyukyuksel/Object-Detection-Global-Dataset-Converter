@@ -15,28 +15,30 @@ Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüş�
 
 
 ## Desteklenen Veri Seti Dönüşümleri;
-*	<i> Kitti Dataset > Tensorflow Object Detection Api CSV </i>
+*	<i> <span style='color:green;'>Tensorflow Object Detection Api CSV</span> &gt; <span style='color:lightblue;'>globalFormat</span> &gt; <span style='color:green;'>Tensorflow Object Detection Api CSV</span> </i>
+
+
 ```python
-$ python Kitti2Csv.py --folder "datasets/kitti" --output "out/dataset.csv"
+from GlobalConverter.CSV import CSV
+from GlobalConverter.Visualizer import Visualizer
+
+## Import Tensorflow CSV Annotation File as GlobalFormat
+globalFormat = CSV.Import("../datasets/csv/dataset.csv")
+
+## Export GlobalFormat as Tensorflow CSV Annotation File 
+CSV.Export(globalFormat, "test.csv")
+
+## Visualize the image "../datasets/csv/000_1OC3DT.jpg" using globalFormat
+Visualizer("test.csv", "csv", "../datasets/csv/000_1OC3DT.jpg").visualize()
 ```
 
-## Smart Dataset Splitter
-* <i> Veri setini dengeli olarak train ve test olarak bölünmesini gerçekleştirir</i>
-```python
-## SmartSplitter
-#**required: dataset.csv
-$ python SmartSplitter4CSV.py --trainsplit 0.8 --iteration 200000 --csvfilename "out/dataset.csv" --imagefolderpath "datasets/kitti"
 
-## Export
-#**required: register.json
-$ python SmartSplitter4CSV.py --csvfilename "out/dataset.csv" --imagefolderpath "datasets/kitti" --export True 
-```
 
 ## Changelog
 
 ### v1.0.0
-* Yayımlanma : Şubat 23, 2021
-* Kitti > CSV dönüşümü gerçekleşiyor.
-* SmartSplitter ile veri seti dengeli olarak `train` ve `test` olarak bölünebiliyor
+* Yayımlanma : Mart 5, 2021
+* CSV import, export
+* globalFormat visualizer
 
 Initial release
