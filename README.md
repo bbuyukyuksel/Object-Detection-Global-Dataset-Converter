@@ -15,7 +15,7 @@ Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüş�
 
 
 ## Desteklenen Veri Seti Dönüşümleri;
-*	<i> <span style='color:green;'>Tensorflow Object Detection Api CSV</span> &gt; <span style='color:lightblue;'>globalFormat</span> &gt; <span style='color:green;'>Tensorflow Object Detection Api CSV</span> </i>
+*	<i> [#f03c15]Tensorflow Object Detection Api CSV &gt; [#1589F0]globalFormat &gt; [#f03c15]Tensorflow Object Detection Api CSV </i>
 
 
 ```python
