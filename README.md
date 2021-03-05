@@ -15,9 +15,9 @@ Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüş�
 
 
 ## Desteklenen Veri Seti Dönüşümleri;
-*	<i> ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Tensorflow Object Detection Api CSV` &gt; 
-        ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `globalFormat` &gt;  
-        ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Tensorflow Object Detection Api CSV`
+*	<i> `Tensorflow Object Detection Api CSV` &gt; 
+        `globalFormat` &gt;  
+        `Tensorflow Object Detection Api CSV`
     </i>
 
 
@@ -34,11 +34,6 @@ CSV.Export(globalFormat, "test.csv")
 ## Visualize the image "../datasets/csv/000_1OC3DT.jpg" using globalFormat
 Visualizer("test.csv", "csv", "../datasets/csv/000_1OC3DT.jpg").visualize()
 ```
-
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
-- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `#1589F0`
-
 
 ## Changelog
 
