@@ -1,0 +1,54 @@
+Örnek:
+    annotations = {
+        filename : {
+            data : [ {   "filename", "width", "height", "class", "bbox"}
+            ]
+            count : {
+                class_1: total_1,
+                class_2: total_2
+            }
+        }
+    }
+
+
+Dosya oku ve line'lara böl.
+
+return list(map(lambda x: {
+            "filename": x.split(',')[0],
+            "width": x.split(',')[1],
+            "height": x.split(',')[2],
+            "class": x.split(',')[3],
+            "bbox": x.split(',')[4:]
+}, self.lines))
+
+JSON => CSV : Bütün bilgiler tek dosyada
+_________________________________________
+Vascal VOC
+image1.png, image1.xml
+
+YoloDarknet
+image.png, image.txt
+
+Kitti
+image.png, image.txt
+
+
+annotations["imge1.png"]["data"][0]["filename"]
+annotations["imge1.png"]["data"][0]["width"] = 300
+annotations["imge1.png"]["data"][0]["height"] 
+annotations["imge1.png"]["data"][0]["class"]
+annotations["imge1.png"]["data"][0]["bbox"] => [xmin, ymin, xmax, ymax]
+
+annotations["imge1.png"]["data"][1]["filename"]
+annotations["imge1.png"]["data"][1]["width"] = 300
+annotations["imge1.png"]["data"][1]["height"] 
+annotations["imge1.png"]["data"][1]["class"]
+annotations["imge1.png"]["data"][1]["bbox"] => [xmin, ymin, xmax, ymax]
+
+annotations["imge.png"]["count"]["class1"] = x adet
+annotations["imge.png"]["count"]["class2"] = y adet
+
+
+
+
+

@@ -1,0 +1,23 @@
+## Sample 1 - Augmentation
+def rotateCropTextArea(img, txtArea):
+    orientation = 0
+    angle = txtArea[-1]
+    if txtArea[-1] < -45.0: 
+        angle = angle + 90
+        orientation = 1
+    
+    centerPoint = tuple(np.array(img.shape[1::-1])/2)
+    rotMat = cv2.getRotationMatrix2D(centerPoint, angle, 1.0)
+    rotatedImage = cv2.warpAffine(img, rotMat, img.shape[1::-1], flags=cv2.INTER_LINEAR) 
+    
+    # rotate bounding box
+    box = cv2.boxPoints(txtArea)
+    pts = np.int0(cv2.transform(np.array([box]), rotMat))[0]  
+    pts[pts < 0] = 0
+    if orientation:
+        imgCrop = rotatedImage[pts[2][1]:pts[1][1], pts[1][0]:pts[0][0]] # saga yatıklar 
+    else:
+        imgCrop = rotatedImage[pts[1][1]:pts[0][1], pts[1][0]:pts[2][0]] # sola yatıklar
+    imgCrop = cv2.resize(imgCrop,(150, 60))
+    
+    return imgCrop
