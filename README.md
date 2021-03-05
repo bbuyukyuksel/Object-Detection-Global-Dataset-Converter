@@ -15,10 +15,7 @@ Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüş�
 
 
 ## Desteklenen Veri Seti Dönüşümleri;
-*	<i> `Tensorflow Object Detection Api CSV` &gt; 
-        `globalFormat` &gt;  
-        `Tensorflow Object Detection Api CSV`
-    </i>
+*	<i> `Tensorflow Object Detection Api CSV` &gt; `globalFormat` &gt; `Tensorflow Object Detection Api CSV` </i>
 
 
 ```python
