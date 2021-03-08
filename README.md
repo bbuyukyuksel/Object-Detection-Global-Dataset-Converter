@@ -14,13 +14,13 @@ Contributors : Burak Büyükyüksel <br />
 
 
 
-## Nedir?
+### Nedir?
 
 Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüşümünü sağlamaktadır.
 
 
 
-## Veri Seti Görselleştirme
+### Veri Seti Görselleştirme
 
 ```python
 from GlobalConverter.Visualizer import Visualizer
@@ -37,37 +37,59 @@ Visualizer('datasets/yolo4_darknet', "yolo4_darknet", "datasets/yolo4_darknet/te
     
 ```
 
-## Veri Dönüşümü Scriptinin Çalıştırılması
 
 
+### Veri Dönüşümü Scriptinin Çalıştırılması
 
-## Veri Dönüşümlerinde Labelmap Uygulanması
+* **CSV :point_right:  Yolo4Darknet** 
+
+  ```sh
+  > python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
+  					  --outpath test_yolo4_darknet --outtype yolo4_darknet ^
+  					  --labelmap Mask 0 Un-Masked 1
+  ```
+
+* **Yolo4Darknet :point_right: CSV** 
+
+  ```sh
+  > python Converter.py --inpath datasets\yolo4_darknet --intype yolo4_darknet ^ 
+  					  --outpath test_dataset.csv --outtype csv ^
+  					  --labelmap 0 Mask 1 Un-Masked
+  ```
+
+  
+
+### Veri Seti içerisindeki Sınıf İsimlerini Değiştirme
 
 *  **CSV :point_right:  CSV** 
 
   ```sh
   > python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
-  					  --outpath mytest.csv --outtype csv ^
-  					  --labelmap Mask Maskeli
+  					  --outpath test_dataset.csv --outtype csv ^
+  					  --labelmap Mask Maskeli Un-Masked Maskesiz
   ```
 
-  <span style='color:green;'> Labelmap : {'Mask': 'Maskeli'} </span>
+  > <span style='color:green;'> Labelmap : {'Mask': 'Maskeli', 'Un-Masked':'Maskesiz'} </span> 
+  >
+  > Mask->Maskeli , Un-Masked->Maskesiz şeklinde sınıf isimlendirmeleri değişecektir.
 
 
 
-* **CSV :point_right: Yolo4Darknet** 
+* **Yolo4Darknet :point_right: Yolo4Darknet** 
 
   ```sh
-  python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
+  python Converter.py --inpath datasets\yolo4_dataset --intype yolo4_darknet ^ 
   					--outpath test_yolo4_darknet --outtype yolo4_darknet ^
-  					--labelmap Mask 0 Un-Masked 1
+  					--labelmap 0 1 1 0
   ```
 
-  <span style='color:green;'> Labelmap : {'Mask': 0, "Un-Masked":1} </span>
+  > <span style='color:green;'> Labelmap : {"0": "1", "1":"0"} </span>
+  >
+  > 0->1, 1->0 şeklinde sınıf isimlendirmeleri değişecektir.
 
 
 
-## Desteklenen Veri Seti Dönüşümleri;
+### Desteklenen Veri Seti Dönüşümleri;
 
 * <i> `Tensorflow Object Detection Api CSV` &gt; `globalFormat` &gt; `Tensorflow Object Detection Api CSV` </i>
 
@@ -111,16 +133,16 @@ Visualizer("yolo4_darknet_test", "yolo4_darknet", "yolo4_darknet_test/test1.jpg"
 
 
 
-## Changelog
+### Changelog
 
-### v1.1.0
+#### v1.1.0
 
 * Yayımlanma : Mart 8, 2021
 
 * Yolo4Darknet import, export
 * update globalFormat visualizer
 
-### v1.0.0
+#### v1.0.0
 
 * Yayımlanma : Mart 5, 2021
 
