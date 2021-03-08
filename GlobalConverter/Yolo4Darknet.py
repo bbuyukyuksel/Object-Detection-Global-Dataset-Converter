@@ -3,6 +3,7 @@ import glob
 import cv2
 import os
 import shutil
+import math
 
 class Yolo4Darknet:
     @classmethod
@@ -63,7 +64,7 @@ class Yolo4Darknet:
         return globalFormat
             
     @classmethod
-    def Export(cls, globalFormat:dict, path:str):
+    def Export(cls, globalFormat:dict, path:str, labelmap=None):
         if os.path.exists(path):
             shutil.rmtree(path)
         os.mkdir(path)
@@ -74,7 +75,7 @@ class Yolo4Darknet:
                     obj_image_filename = obj["filename"]
                     obj_width = obj["width"]
                     obj_height = obj["height"]
-                    obj_class = obj["class"]
+                    obj_class = labelmap[obj["class"]] if labelmap else obj["class"]
                     obj_bbox = tuple(map(lambda x: float(x), obj["bbox"]))
 
                     #CLASS, X, Y, Width, Height
@@ -83,6 +84,8 @@ class Yolo4Darknet:
 
                     X += Width / 2
                     Y += Height/2
+
+                    X,Y,Width,Height = tuple(map(lambda x: round(x,6), (X,Y,Width, Height)))
 
                     str_line = f"{obj_class} {X} {Y} {Width} {Height}\n"
                     file.write(str_line)
