@@ -64,7 +64,7 @@ class Yolo4Darknet:
         return globalFormat
             
     @classmethod
-    def Export(cls, globalFormat:dict, path:str, labelmap=None):
+    def Export(cls, globalFormat:dict, path:str, labelmap:dict=None):
         if os.path.exists(path):
             shutil.rmtree(path)
         os.mkdir(path)
