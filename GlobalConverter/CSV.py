@@ -29,7 +29,7 @@ class CSV:
         return globalFormat
 
     @classmethod
-    def Export(cls, globalFormat:dict, filename:str):
+    def Export(cls, globalFormat:dict, filename:str, labelmap:dict=None):
         with open(filename, 'w') as file:
             file.write("filename,width,height,class,xmin,ymin,xmax,ymax\n")
             for fname in tqdm(globalFormat.keys()):
@@ -37,7 +37,7 @@ class CSV:
                     obj_image_filename = obj["filename"]
                     obj_width = obj["width"]
                     obj_height = obj["height"]
-                    obj_class = obj["class"]
+                    obj_class = labelmap[obj["class"]] if labelmap else obj["class"]
                     obj_bbox = obj["bbox"]
                     str_line = f"{obj_image_filename},{obj_width},{obj_height},{obj_class}," + ",".join(obj_bbox) + "\n"                    
                     file.write(str_line )

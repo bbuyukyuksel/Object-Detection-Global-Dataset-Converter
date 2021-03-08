@@ -17,7 +17,7 @@ def main(inpath, intype, outpath, outtype, labelmap=None):
     assert globalFormat != None
 
     if outtype == 'csv':
-        CSV.Export(globalFormat, outpath)
+        CSV.Export(globalFormat, outpath, labelmap=labelmap)
     elif outtype == 'yolo4_darknet':
         Yolo4Darknet.Export(globalFormat, outpath, labelmap=labelmap)
     else:
