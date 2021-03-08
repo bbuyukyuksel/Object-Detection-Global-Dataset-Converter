@@ -14,13 +14,15 @@ Contributors : Burak Büyükyüksel <br />
 
 
 
-### Nedir?
+## Nedir?
 
 Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüşümünü sağlamaktadır.
 
+------
 
 
-### Veri Seti Görselleştirme
+
+## Veri Seti Görselleştirme
 
 ```python
 from GlobalConverter.Visualizer import Visualizer
@@ -37,9 +39,11 @@ Visualizer('datasets/yolo4_darknet', "yolo4_darknet", "datasets/yolo4_darknet/te
     
 ```
 
+------
 
 
-### Veri Dönüşümü Scriptinin Çalıştırılması
+
+## Veri Dönüşümü Scriptinin Çalıştırılması
 
 * **CSV :point_right:  Yolo4Darknet** 
 
@@ -57,9 +61,11 @@ Visualizer('datasets/yolo4_darknet', "yolo4_darknet", "datasets/yolo4_darknet/te
   					  --labelmap 0 Mask 1 Un-Masked
   ```
 
-  
+------
 
-### Veri Seti içerisindeki Sınıf İsimlerini Değiştirme
+
+
+## Veri Seti içerisindeki Sınıf İsimlerini Değiştirme
 
 *  **CSV :point_right:  CSV** 
 
@@ -87,9 +93,11 @@ Visualizer('datasets/yolo4_darknet', "yolo4_darknet", "datasets/yolo4_darknet/te
   >
   > 0->1, 1->0 şeklinde sınıf isimlendirmeleri değişecektir.
 
+------
 
 
-### Desteklenen Veri Seti Dönüşümleri;
+
+## Desteklenen Veri Seti Dönüşümleri;
 
 * <i> `Tensorflow Object Detection Api CSV` &gt; `globalFormat` &gt; `Tensorflow Object Detection Api CSV` </i>
 
@@ -133,7 +141,7 @@ Visualizer("yolo4_darknet_test", "yolo4_darknet", "yolo4_darknet_test/test1.jpg"
 
 
 
-### Changelog
+## Changelog
 
 #### v1.1.0
 
