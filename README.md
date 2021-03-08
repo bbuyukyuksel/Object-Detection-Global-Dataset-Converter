@@ -1,4 +1,4 @@
-# Dataset Converter & Smart Dataset Splitter
+# Object Detection Dataset Converter
 
 
 
@@ -10,9 +10,15 @@ Contributors : Burak Büyükyüksel <br />
 
 <hr />
 
+<img src="https://octodex.github.com/images/baracktocat.jpg" alt="Baracktocat" style="zoom:50%;" />
+
+
+
 ## Nedir?
 
 Nesne tespiti uygulamalarında destek gören veri setlerinin birbirine dönüşümünü sağlamaktadır.
+
+
 
 ## Veri Seti Görselleştirme
 
@@ -30,6 +36,34 @@ colorMap = {
 Visualizer('datasets/yolo4_darknet', "yolo4_darknet", "datasets/yolo4_darknet/test1.jpg").visualize(colorMap=colorMap)
     
 ```
+
+## Veri Dönüşümü Scriptinin Çalıştırılması
+
+
+
+## Veri Dönüşümlerinde Labelmap Uygulanması
+
+*  **CSV :point_right:  CSV** 
+
+  ```sh
+  > python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
+  					  --outpath mytest.csv --outtype csv ^
+  					  --labelmap Mask Maskeli
+  ```
+
+  <span style='color:green;'> Labelmap : {'Mask': 'Maskeli'} </span>
+
+
+
+* **CSV :point_right: Yolo4Darknet** 
+
+  ```sh
+  python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
+  					--outpath test_yolo4_darknet --outtype yolo4_darknet ^
+  					--labelmap Mask 0 Un-Masked 1
+  ```
+
+  <span style='color:green;'> Labelmap : {'Mask': 0, "Un-Masked":1} </span>
 
 
 
