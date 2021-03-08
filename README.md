@@ -70,9 +70,9 @@ Visualizer('datasets/yolo4_darknet', "yolo4_darknet", "datasets/yolo4_darknet/te
 *  **CSV :point_right:  CSV** 
 
   ```sh
-  > python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
-  					  --outpath test_dataset.csv --outtype csv ^
-  					  --labelmap Mask Maskeli Un-Masked Maskesiz
+  python Converter.py --inpath datasets\csv\dataset.csv --intype csv ^ 
+  				  --outpath test_dataset.csv --outtype csv ^
+  				  --labelmap Mask Maskeli Un-Masked Maskesiz
   ```
 
   > <span style='color:green;'> Labelmap : {'Mask': 'Maskeli', 'Un-Masked':'Maskesiz'} </span> 
