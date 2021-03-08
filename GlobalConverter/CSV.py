@@ -29,7 +29,7 @@ class CSV:
         return globalFormat
 
     @classmethod
-    def Export(cls, globalFormat:list, filename:str):
+    def Export(cls, globalFormat:dict, filename:str):
         with open(filename, 'w') as file:
             file.write("filename,width,height,class,xmin,ymin,xmax,ymax\n")
             for fname in tqdm(globalFormat.keys()):
