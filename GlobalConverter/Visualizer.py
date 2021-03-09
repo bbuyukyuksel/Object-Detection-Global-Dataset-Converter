@@ -19,11 +19,11 @@ class Visualizer:
         elif annotationFileFormat == 'yolo4_darknet':
             self.globalFormat = Yolo4Darknet.Import(self.annotationFile)
 
-    def visualize(self, imagePath=None, colorMap=None, fontSize=0.5):
-        basename = os.path.basename(self.imagePath)
+    def visualize(self, imagePath=None, colorMap=None, fontSize=0.5, stime=0):
         
         if imagePath:
             self.imagePath = imagePath
+        basename = os.path.basename(self.imagePath)
         Image = cv2.imread(self.imagePath, cv2.IMREAD_UNCHANGED)
         
         if colorMap:
@@ -36,7 +36,7 @@ class Visualizer:
             cv2.rectangle(Image, tuple(bbox[:2]), tuple(bbox[2:]), colormap[annotation["class"]], 1)
             cv2.putText(Image, annotation["class"], tuple(bbox[:2]), cv2.FONT_HERSHEY_PLAIN, 1, colormap[annotation["class"]])
         cv2.imshow("Image BBOX", Image)
-        cv2.waitKey(0)
+        cv2.waitKey(stime)
 
 
     
