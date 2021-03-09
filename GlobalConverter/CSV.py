@@ -7,7 +7,7 @@ class CSV:
         with open(filename, 'r') as f:
             lines = f.readlines()[1:]
             lines = list(map(lambda x: x.replace("\n", "").replace("\r", ""), lines))
-
+            lines = list(filter(lambda x: x, lines))
         parsed = list(map(lambda x: {
             "filename": x.split(',')[0],
             "width": x.split(',')[1],
