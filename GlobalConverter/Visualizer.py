@@ -7,8 +7,10 @@ import random
 
 class Visualizer:
 
-    def __init__(self, annotationFilePath:str, annotationFileFormat:str, imagePath:str):
-        self.imagePath = imagePath
+    def __init__(self, annotationFilePath:str, annotationFileFormat:str, imagePath:str=None):
+        if imagePath:
+            self.imagePath = imagePath
+        
         self.annotationFile = annotationFilePath
         self.annotationFileFormat = annotationFileFormat
 
@@ -17,9 +19,11 @@ class Visualizer:
         elif annotationFileFormat == 'yolo4_darknet':
             self.globalFormat = Yolo4Darknet.Import(self.annotationFile)
 
-    def visualize(self, colorMap=None, fontSize=0.5):
+    def visualize(self, imagePath=None, colorMap=None, fontSize=0.5):
         basename = os.path.basename(self.imagePath)
         
+        if imagePath:
+            self.imagePath = imagePath
         Image = cv2.imread(self.imagePath, cv2.IMREAD_UNCHANGED)
         
         if colorMap:
