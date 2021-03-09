@@ -5,7 +5,7 @@ from GlobalConverter.Yolo4Darknet import Yolo4Darknet
 from GlobalConverter.CSV import CSV
 
 
-def main(inpath, intype, outpath, outtype, labelmap=None):
+def main(inpath, intype, outpath, outtype, labelmap=None, rename:bool=None):
     globalFormat = None
     if intype == 'csv':
         globalFormat = CSV.Import(inpath)
@@ -17,7 +17,7 @@ def main(inpath, intype, outpath, outtype, labelmap=None):
     assert globalFormat != None
 
     if outtype == 'csv':
-        CSV.Export(globalFormat, outpath, labelmap=labelmap)
+        CSV.Export(globalFormat, outpath, labelmap=labelmap, rename=rename)
     elif outtype == 'yolo4_darknet':
         Yolo4Darknet.Export(globalFormat, outpath, labelmap=labelmap)
     else:
@@ -38,6 +38,7 @@ if __name__ == '__main__':
     ap.add_argument("--intype", required=True,  help="In Path")
     ap.add_argument("--outpath",required=True,  help="In Path")
     ap.add_argument("--outtype",required=True,  help="In Path")
+    ap.add_argument("--rename",required=False, type=bool, help="In Path")
     ap.add_argument("--labelmap", required=False, nargs="+",)
 
     args = ap.parse_args()
@@ -56,6 +57,6 @@ if __name__ == '__main__':
     else:
         labelmap = None
 
-    main(args.inpath, args.intype, args.outpath, args.outtype, labelmap=labelmap)
+    main(args.inpath, args.intype, args.outpath, args.outtype, labelmap=labelmap, rename=args.rename)
     
     
