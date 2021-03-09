@@ -16,7 +16,8 @@ class Yolo4Darknet:
         globalFormat = {}
         for annotation_file in annotation_files:
             # Get Image File
-            image_file = tuple(filter(lambda x: os.path.basename(x).split(".")[0] in annotation_file, image_files))
+            
+            image_file = tuple(filter(lambda x: ".".join(os.path.basename(x).split(".")[:-1]) in annotation_file, image_files))
             assert len(image_file) > 0, Exception("Could not file image file using by annotation filename")
             image_file = image_file[0]
             base_image_filename = os.path.basename(image_file)
