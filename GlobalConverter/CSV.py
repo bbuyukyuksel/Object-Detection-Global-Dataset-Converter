@@ -29,12 +29,19 @@ class CSV:
         return globalFormat
 
     @classmethod
-    def Export(cls, globalFormat:dict, filename:str, labelmap:dict=None):
+    def Export(cls, globalFormat:dict, filename:str, labelmap:dict=None, rename:bool=False):
+        PREFIX = datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + "-{}" 
+        if rename:
+            print("PREFIX:", PREFIX)
         with open(filename, 'w') as file:
             file.write("filename,width,height,class,xmin,ymin,xmax,ymax\n")
             for fname in tqdm(globalFormat.keys()):
                 for obj in globalFormat[fname]["data"]:
-                    obj_image_filename = obj["filename"]
+                    if rename:
+                        obj_image_filename = PREFIX.format(obj["filename"])
+                    else:
+                        obj_image_filename = obj["filename"]
+                    
                     obj_width = obj["width"]
                     obj_height = obj["height"]
                     obj_class = labelmap[obj["class"]] if labelmap else obj["class"]
