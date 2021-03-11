@@ -14,10 +14,9 @@ class Yolo4Darknet:
         image_files      = tuple(filter(lambda x: ".txt" not in x, files))
 
         globalFormat = {}
-        for annotation_file in annotation_files:
-            # Get Image File
-            
-            image_file = tuple(filter(lambda x: ".".join(os.path.basename(x).split(".")[:-1]) in annotation_file, image_files))
+        for annotation_file in tqdm(annotation_files):
+
+            image_file = tuple(filter(lambda x: ".".join(os.path.basename(x).split(".")[:-1]) + ".txt" in annotation_file, image_files))
             assert len(image_file) > 0, Exception("Could not file image file using by annotation filename")
             image_file = image_file[0]
             base_image_filename = os.path.basename(image_file)
@@ -62,6 +61,7 @@ class Yolo4Darknet:
                 "count": count,
                 "data": data
             }
+            
         return globalFormat
             
     @classmethod
@@ -71,7 +71,7 @@ class Yolo4Darknet:
         os.mkdir(path)
 
         for fname in tqdm(globalFormat.keys()):
-            with open(os.path.join(path, fname.split(".")[0] + ".txt"), 'w') as file:
+            with open(os.path.join(path, ".".join(fname.split(".")[:-1]) + ".txt"), 'w') as file:
                 for obj in globalFormat[fname]["data"]:
                     obj_image_filename = obj["filename"]
                     obj_width = obj["width"]
