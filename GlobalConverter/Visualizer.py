@@ -6,6 +6,7 @@ import os
 import random
 import termcolor
 import sys
+import json
 
 class Visualizer:
 
@@ -32,12 +33,11 @@ class Visualizer:
             colormap = colorMap
         else:
             colormap = {x:(random.randint(0,255),random.randint(0,255),random.randint(0,255)) for x in self.globalFormat[basename]["count"].keys()}
-        try:
-            for annotation in self.globalFormat[basename]["data"]:
-                bbox = list(map(lambda x: int(x), annotation["bbox"]))
-                cv2.rectangle(Image, tuple(bbox[:2]), tuple(bbox[2:]), colormap[annotation["class"]], 1)
-                cv2.putText(Image, annotation["class"], tuple(bbox[:2]), cv2.FONT_HERSHEY_PLAIN, 1, colormap[annotation["class"]])
-        except:
-            termcolor.cprint(f"Key Error {sys.exc_info}")
+        
+        for annotation in self.globalFormat[basename]["data"]:
+            bbox = list(map(lambda x: int(x), annotation["bbox"]))
+            cv2.rectangle(Image, tuple(bbox[:2]), tuple(bbox[2:]), colormap[annotation["class"]], 1)
+            cv2.putText(Image, annotation["class"], tuple(bbox[:2]), cv2.FONT_HERSHEY_PLAIN, 1, colormap[annotation["class"]])
+        
         cv2.imshow("Image BBOX", Image)
         cv2.waitKey(stime)
