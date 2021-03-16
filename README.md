@@ -143,12 +143,18 @@ Visualizer("yolo4_darknet_test", "yolo4_darknet", "yolo4_darknet_test/test1.jpg"
 
 ## Changelog
 
+#### v1.2.0
+
+* Yayımlanma : Mart 16, 2021
+* Yolo4DarknetDatasetRename scripti eklenerek, yolo4_darknet formatındaki veri setinin yeniden isimlendirilmesi gerçekleştirildi.
+* Visualize scripti yazılarak, içerisindeki tip ve veri seti yolunun değiştirilmesi ile veri setlerinin kontrol edilmesi sağlanmaktadır.
+
 #### v1.1.0
 
 * Yayımlanma : Mart 8, 2021
 
 * Yolo4Darknet import, export
-* update globalFormat visualizer
+* globalFormat visualizer yolo4_darknet formatına destek veriyor
 
 #### v1.0.0
 
@@ -156,4 +162,4 @@ Visualizer("yolo4_darknet_test", "yolo4_darknet", "yolo4_darknet_test/test1.jpg"
 
 * CSV import, export
 
-* globalFormat visualizer
+* globalFormat visualizer eklendi
