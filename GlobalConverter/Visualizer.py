@@ -1,5 +1,6 @@
 from GlobalConverter.CSV import CSV
 from GlobalConverter.Yolo4Darknet import Yolo4Darknet
+from GlobalConverter.LabelmeJSON import LabelmeJSON
 
 import cv2
 import os
@@ -21,6 +22,9 @@ class Visualizer:
             self.globalFormat = CSV.Import(self.annotationFile) 
         elif annotationFileFormat == 'yolo4_darknet':
             self.globalFormat = Yolo4Darknet.Import(self.annotationFile)
+        elif annotationFileFormat == 'labelme_json':
+            self.globalFormat = LabelmeJSON.Import(self.annotationFile)
+            
 
     def visualize(self, imagePath=None, colorMap=None, fontSize=0.5, stime=0):
         

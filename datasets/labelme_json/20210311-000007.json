@@ -1,0 +1,26 @@
+{
+  "version": "4.5.7",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "unmasked",
+      "points": [
+        [
+          65.74074074074076,
+          7.098765432098762
+        ],
+        [
+          234.72839506172835,
+          195.06172839506172
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "20210311-000007.jpg",
+  "imageData": null,
+  "imageHeight": 300,
+  "imageWidth": 300
+}
